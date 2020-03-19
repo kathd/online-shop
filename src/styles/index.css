@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #141414;
+  font-family: 'Quicksand', sans-serif;
+}
+
+a {
+  color: #1b1b1b;
+  text-decoration: none;
+}
