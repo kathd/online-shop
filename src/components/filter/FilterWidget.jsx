@@ -3,7 +3,8 @@ import "../../styles/filter.css";
 
 import products from "../../data/products";
 
-const FilterWidget = () => {
+const FilterWidget = ({clbk}) => {
+
   // Get colors from data:
   let colors = [];
   products.map(product => {
@@ -25,7 +26,7 @@ const FilterWidget = () => {
         <form>
           {colors.map((color, i) => (
             <div key={i}>
-              <input type="checkbox" name="color" value={color} />
+              <input type="checkbox" name="color" value={color} onChange={clbk} />
               <label htmlFor="color">{color}</label>
               <br />
             </div>

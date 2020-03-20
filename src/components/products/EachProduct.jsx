@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/products.css";
 
-const EachProduct = ({ images, name, brand, colors, sizes }) => {
+const EachProduct = ({ images, name, brand, price, colors, sizes }) => {
   return (
     <div className="product-wrapper">
       <div className="container">
@@ -23,6 +23,7 @@ const EachProduct = ({ images, name, brand, colors, sizes }) => {
         
       </div>
       <h3>{name}</h3>
+      <h4>€ {price}</h4>
       <h4>{brand}</h4>
       {/* <div className="colors">
         <p>
