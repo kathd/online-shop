@@ -1,5 +1,4 @@
 import React from 'react';
-import products from "../data/products";
 import FilterWidget from '../components/filter/FilterWidget';
 import ShowProducts from '../components/products/ShowProducts';
 

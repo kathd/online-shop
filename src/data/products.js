@@ -15,7 +15,7 @@ module.exports = [
     {product:13, images:["/images/tshirts/Ban.do/Yes You Can Retro Tee.png", "/images/tshirts/Ban.do/Yes You Can Retro Tee 2.png"], name:"Yes You Can Retro Tee", brand:"Ban.do", availableColors:["White"], availableSizes:["XS","S","M","L","XL"]},
     {product:14, images:["/images/tshirts/ModCloth/All Booked This Weekend Ringer Tee.png", "/images/tshirts/ModCloth/All Booked This Weekend Ringer Tee 2.png"], name:"All Booked This Weekend Ringer Tee", brand:"ModCloth", availableColors:["White"], availableSizes:["XS","S","M","L","XL"]},
     {product:15, images:["/images/tshirts/ModCloth/Cacti And Succulents Tee.png", "/images/tshirts/ModCloth/Cacti And Succulents Tee 2.png"], name:"Cacti And Succulents Tee", brand:"ModCloth", availableColors:["White"], availableSizes:["XS","S","M","L","XL"]},
-    {product:16, images:["/public/images/tshirts/ModCloth/From Outer Space Graphic Tee.png", "/images/tshirts/ModCloth/From Outer Space Graphic Tee 2.png"], name:"From Outer Space Graphic Tee", brand:"ModCloth", availableColors:["Navy Blue"], availableSizes:["XS","S","M","L","XL"]},
-    {product:17, images:["/public/images/tshirts/ModCloth/Let's Guac N Roll Tee.png", "/images/tshirts/ModCloth/Let's Guac N Roll Tee 2.png"], name:"Let's Guac N Roll Tee", brand:"ModCloth", availableColors:["White"], availableSizes:["XS","S","M","L","XL"]},
+    {product:16, images:["/images/tshirts/ModCloth/From Outer Space Graphic Tee.png", "/images/tshirts/ModCloth/From Outer Space Graphic Tee 2.png"], name:"From Outer Space Graphic Tee", brand:"ModCloth", availableColors:["Navy Blue"], availableSizes:["XS","S","M","L","XL"]},
+    {product:17, images:["/images/tshirts/ModCloth/Let's Guac N Roll Tee.png", "/images/tshirts/ModCloth/Let's Guac N Roll Tee 2.png"], name:"Let's Guac N Roll Tee", brand:"ModCloth", availableColors:["White"], availableSizes:["XS","S","M","L","XL"]},
     
 ]

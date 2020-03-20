@@ -1,0 +1,38 @@
+.show-products {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.product-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+img.img-shirt {
+    width: 280px;
+    height: 350px;
+    object-fit: cover;
+}
+
+div.colors {
+    display: flex;
+    margin-top: 10px;
+}
+
+div.sizes {
+    display: flex;
+    margin: 10px;
+}
+
+.sizes ul {
+    display: flex;
+}
+
+.sizes li {
+    list-style: none;
+    margin: 0 5px;
+}
