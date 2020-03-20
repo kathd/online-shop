@@ -6,8 +6,9 @@ import products from "../../data/products";
 const ShowProducts = () => {
   return (
     <div className="show-products">
-      {products.map((product)=> (
+      {products.map(product => (
         <EachProduct
+          key={product.product}
           images={product.images}
           name={product.name}
           brand={product.brand}

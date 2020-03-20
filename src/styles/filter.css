@@ -1,0 +1,14 @@
+div.widget {
+    width: 290px;
+    height: 500px;
+    position: fixed;
+    z-index: 1;
+    margin: 20px 10px 20px 40px;
+    border: 1px solid gray;
+}
+
+.widget h3 {
+    margin: 10px;
+    font-size: 17px;
+    text-align: center;
+}
