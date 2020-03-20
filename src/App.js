@@ -1,10 +1,10 @@
-import React from 'src/node_modules/react';
-import { Switch, Route } from 'src/node_modules/react-router-dom';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import Navbar from 'src/components/Navbar';
-import Home from 'src/views/Home';
-import Shop from 'src/views/Shop';
-import Cart from 'src/views/Cart';
+import Navbar from './components/Navbar';
+import Home from './views/Home';
+import Shop from './views/Shop';
+import Cart from './views/Cart';
 
 function App() {
   return (

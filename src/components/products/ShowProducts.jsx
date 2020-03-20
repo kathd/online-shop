@@ -1,6 +1,6 @@
 import React from 'react';
 
-import EachProduct from 'src/components/products/EachProduct';
+import EachProduct from './EachProduct';
 
 const ShowProducts = () => {
     return (
