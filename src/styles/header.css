@@ -1,6 +1,8 @@
-.header {
+.fixed-header {
     width: 100%;
     position: fixed;
-    padding: 50px;
+    top: 60px;
     text-align: center;
+    background-color: #fff;
+    overflow: hidden;
 }

@@ -1,9 +1,10 @@
 import React from 'react';
+import Header from '../components/Header';
 
 const Home = () => {
     return (
         <div>
-            <h1>Welcome to TeeShirtz</h1>
+            <Header title="Welcome to TeeShirtz!" />
         </div>
     )
 }
