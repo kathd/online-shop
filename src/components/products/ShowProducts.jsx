@@ -3,7 +3,7 @@ import React from "react";
 import EachProduct from "./EachProduct";
 import products from "../../data/products";
 
-const ShowProducts = ({ isColorFiltered }) => {
+const ShowProducts = ({ colorsChecked }) => {
   return (
     <div className="show-products">
       {/* show only products that match the filters */}

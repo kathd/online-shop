@@ -1,36 +1,26 @@
 import React from "react";
 import "../../styles/filter.css";
 
-import products from "../../data/products";
+import Checkboxes from "../filter/Checkboxes";
 
-const FilterWidget = ({clbk}) => {
-
-  // Get colors from data:
-  let colors = [];
-  products.map(product => {
-    return product.availableColors.map(color => colors.push(color));
-  });
-  // Remove color duplicates:
-  colors = colors.reduce((acc, cv) => {
-    if (acc.indexOf(cv) === -1) {
-      acc.push(cv);
-    }
-    return acc;
-  }, []);
+const FilterWidget = ({ colors, sizes, handleCheck, handleSubmit }) => {
 
   return (
     <div className="widget">
       <h3>Filter Tees</h3>
       <div>
-        <h4>Color:</h4>
         <form>
-          {colors.map((color, i) => (
-            <div key={i}>
-              <input type="checkbox" name="color" value={color} onChange={clbk} />
-              <label htmlFor="color">{color}</label>
-              <br />
-            </div>
-          ))}
+          <Checkboxes
+            title="Color"
+            dataArray={colors}
+            handleCheck={handleCheck}
+          />
+          <Checkboxes
+            title="Size"
+            dataArray={sizes}
+            handleCheck={handleCheck}
+          />
+          <button onSubmit={handleSubmit}>Filter</button>
         </form>
       </div>
     </div>

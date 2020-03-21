@@ -3,8 +3,9 @@ div.widget {
     height: 500px;
     position: fixed;
     z-index: 1;
-    margin: 20px 10px 20px 40px;
+    margin: 40px 10px 20px 40px;
     border: 1px solid gray;
+    border-radius: 20px;
 }
 
 .widget h3 {

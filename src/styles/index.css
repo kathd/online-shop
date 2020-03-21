@@ -13,3 +13,41 @@ a {
   color: #1b1b1b;
   text-decoration: none;
 }
+
+/* NAVBAR */
+
+.navbar {
+  width: 100%;
+  padding: 15px;
+  position: fixed;
+  display: flex;
+  /* overflow: hidden; */
+  background-color: #fff;
+}
+
+.navbar .logo {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.navbar .menu {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar .menu > * {
+  margin: 10px;
+}
+
+/* PAGES */
+
+.main {
+  width: 100%;
+  padding-top: 100px;
+  overflow: hidden;
+  background-color: #fff;
+}
