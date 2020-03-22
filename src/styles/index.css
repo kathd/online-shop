@@ -7,7 +7,7 @@
 body {
   color: #141414;
   font-family: 'Quicksand', sans-serif;
-  padding-top: 120px;
+  /* padding-top: 120px; */
 }
 
 a {
@@ -15,40 +15,10 @@ a {
   text-decoration: none;
 }
 
-/* NAVBAR */
-
-.navbar {
-  width: 100%;
-  padding: 15px;
-  position: fixed;
-  top: 0;
-  display: flex;
-  /* overflow: hidden; */
-  background-color: #fff;
-}
-
-.navbar .logo {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.navbar .menu {
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.navbar .menu > * {
-  margin: 10px;
-}
-
 /* PAGES */
 
 .main {
   width: 100%;
-  position: relative;
+  /* position: relative; */
   /* margin-top: 120px; */
 }

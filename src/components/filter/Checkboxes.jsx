@@ -1,14 +1,16 @@
 import React from 'react';
 
+import "../../styles/filter.css";
+
 
 const Checkboxes = ({ title, dataArray, handleCheck}) => {
     return (
-        <div>
+        <div className="filter-group">
         <h4>{title}:</h4>
-          {dataArray.map((data, i) => (
-            <div key={i}>
-              <input type="checkbox" name={title.toLowerCase()} value={data.name} onChange={handleCheck} />
-              <label htmlFor={title.toLowerCase()}>{data.name}</label>
+          {dataArray.map((data) => (
+            <div className="checkbox" key={data.id}>
+              <input type="checkbox" name={title.toLowerCase()} value={data.value} onChange={handleCheck} />
+              <label htmlFor={title.toLowerCase()}>{data.value}</label>
               <br />
             </div>
           ))}

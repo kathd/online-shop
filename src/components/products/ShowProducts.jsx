@@ -1,12 +1,11 @@
 import React from "react";
 
 import EachProduct from "./EachProduct";
-import products from "../../data/products";
+// import products from "../../data/products";
 
-const ShowProducts = ({ colorsChecked }) => {
+const ShowProducts = ({ products, filters }) => {
   return (
     <div className="show-products">
-      {/* show only products that match the filters */}
       {products.map(product => (
         <EachProduct
           key={product.product}

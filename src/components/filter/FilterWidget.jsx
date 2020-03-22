@@ -3,7 +3,7 @@ import "../../styles/filter.css";
 
 import Checkboxes from "../filter/Checkboxes";
 
-const FilterWidget = ({ colors, sizes, handleCheck, handleSubmit }) => {
+const FilterWidget = ({ colors, sizes, handleColors, handleSizes, handleSubmit }) => {
 
   return (
     <div className="widget">
@@ -11,16 +11,16 @@ const FilterWidget = ({ colors, sizes, handleCheck, handleSubmit }) => {
       <div>
         <form>
           <Checkboxes
-            title="Color"
+            title="Colors"
             dataArray={colors}
-            handleCheck={handleCheck}
+            handleCheck={handleColors}
           />
           <Checkboxes
-            title="Size"
+            title="Sizes"
             dataArray={sizes}
-            handleCheck={handleCheck}
+            handleCheck={handleSizes}
           />
-          <button onSubmit={handleSubmit}>Filter</button>
+          <button className="btn-filter" onClick={handleSubmit}>Filter</button>
         </form>
       </div>
     </div>

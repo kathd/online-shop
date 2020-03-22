@@ -1,10 +1,9 @@
 module.exports = [
-    "Gray", "Green", "Blue", "White", "Pink", "Red", "Yellow"
-    {name:"Gray", isChecked: false},
-    {name:"Green", isChecked: false},
-    {name:"Blue", isChecked: false},
-    {name:"White", isChecked: false},
-    {name:"Pink", isChecked: false},
-    {name:"Red", isChecked: false},
-    {name:"Yellow", isChecked: false},
-]
+    { id: 1, value: "Gray", isChecked: false },
+    { id: 2, value: "Green", isChecked: false },
+    { id: 3, value: "Blue", isChecked: false },
+    { id: 4, value: "White", isChecked: false },
+    { id: 5, value: "Pink", isChecked: false },
+    { id: 6, value: "Red", isChecked: false },
+    { id: 7, value: "Yellow", isChecked: false }
+  ]
