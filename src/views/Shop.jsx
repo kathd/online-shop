@@ -19,6 +19,7 @@ const Shop = () => {
   }, []);
 
   const handleFilterByColor = e => {
+    //   change isChecked values of color data when selected by user:
     const newColorFilters = [...filterByColor];
     newColorFilters.forEach(color => {
       if (color.value === e.target.value) {
@@ -29,6 +30,7 @@ const Shop = () => {
   };
 
   const handleFilterBySize = e => {
+    //   change isChecked values of size data when selected by user:
     const newSizeFilters = [...filterBySize];
     newSizeFilters.forEach(size => {
       if (size.value === e.target.value) {
@@ -41,34 +43,57 @@ const Shop = () => {
   const fetchProducts = () => {
     const colorFilters = [...filterByColor];
     const sizeFilters = [...filterBySize];
+    // where checked filters are stored:
+    const checkedColorFilters = [];
+    const checkedSizeFilters = [];
+    // variables where filtered products will be stored:
     let productsByColor = [];
     let productsBySize = [];
     let newProducts = [];
 
+    // push products that match with color filters to productsByColor array
     colorFilters.forEach(color => {
       products.forEach(product => {
-        if (color.isChecked && product.availableColors.includes(color.value)) {
-          productsByColor.push(product);
+        if (color.isChecked) {
+          checkedColorFilters.push(color); // to keep track of the number of filters checked
+          if (product.availableColors.includes(color.value)) {
+            productsByColor.push(product);
+          }
         }
       });
     });
 
-    if (!productsByColor.length) productsByColor = [...products];
+    // if there are no color filters, all products are to be used for further filtering
+    if (!checkedColorFilters.length) productsByColor = [...products];
 
+    // push products that match with size filters to productsBySize array
     productsByColor.forEach(product => {
+      console.log(
+        "products:",
+        productsByColor.length,
+        "product:",
+        product.name
+      );
       sizeFilters.forEach(size => {
-        if (size.isChecked && product.availableSizes.includes(size.value)) {
-          productsBySize.push(product);
+        console.log();
+        if (size.isChecked) {
+          checkedSizeFilters.push(size); // to keep track of the number of filters checked
+          if (product.availableSizes.includes(size.value)) {
+            productsBySize.push(product);
+          }
         }
       });
     });
 
-    if (!productsBySize.length) {
+    // if 0 size filters checked, only the products filtered by colors are shown
+    // when no product matches the size filters, 0 products will be shown on the page
+    if (!checkedSizeFilters.length) {
       newProducts = [...productsByColor];
     } else {
       newProducts = [...productsBySize];
     }
 
+    // Aray.from(new Set()) removes duplicates from newProducts array
     setFilteredProducts(Array.from(new Set(newProducts)));
   };
 
@@ -79,7 +104,6 @@ const Shop = () => {
 
   return (
     <>
-      {/* {console.log(filteredProducts)} */}
       <Header title="Shop" />
       <div className="main shop-page">
         <div className="total-tees">
