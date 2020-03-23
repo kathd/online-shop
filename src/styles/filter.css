@@ -1,7 +1,7 @@
 div.widget {
     width: 200px;
     min-width: 200px;
-    height: 470px;
+    height: 650px;
     /* position: fixed; */
     z-index: 1;
     margin-left: 40px;
@@ -13,6 +13,7 @@ div.widget {
     -webkit-box-shadow: 11px 11px 38px -21px rgba(0, 0, 0, 0.36);
     -moz-box-shadow: 11px 11px 38px -21px rgba(0, 0, 0, 0.36);
     box-shadow: 11px 11px 38px -21px rgba(0, 0, 0, 0.36);
+    font-size: 14px;
 }
 
 .widget h3 {
@@ -43,6 +44,21 @@ div.filter-group>* {
     margin: 2px 0;
 }
 
+div.checkbox {
+    display: flex;
+}
+
 div.checkbox>* {
-    margin: 0 3px;
+    margin: auto 3px;
+}
+
+.checkbox label {
+    display: flex;
+    flex-direction: row;
+}
+
+.color-block {
+    margin: auto 3px auto 0;
+    width: 10px;
+    height: 10px;
 }

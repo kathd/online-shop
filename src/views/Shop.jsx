@@ -7,12 +7,13 @@ import "../styles/shop-page.css";
 import products from "../data/products";
 import colors from "../data/colors";
 import sizes from "../data/sizes";
+import priceRange from "../data/prices";
 
 const Shop = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
-  //   const [checkedFilters, setCheckedFilters] = useState([]);
   const [filterByColor, setFilterByColor] = useState(colors);
   const [filterBySize, setFilterBySize] = useState(sizes);
+  const [filterByPrice, setFilterByPrice] = useState(priceRange);
 
   useEffect(() => {
     setFilteredProducts(products);
@@ -68,14 +69,7 @@ const Shop = () => {
 
     // push products that match with size filters to productsBySize array
     productsByColor.forEach(product => {
-      console.log(
-        "products:",
-        productsByColor.length,
-        "product:",
-        product.name
-      );
       sizeFilters.forEach(size => {
-        console.log();
         if (size.isChecked) {
           checkedSizeFilters.push(size); // to keep track of the number of filters checked
           if (product.availableSizes.includes(size.value)) {
@@ -110,6 +104,7 @@ const Shop = () => {
           <p>{filteredProducts.length} Article(s)</p>
         </div>
         <FilterWidget
+          prices={filterByPrice}
           sizes={filterBySize}
           colors={filterByColor}
           handleColors={handleFilterByColor}
