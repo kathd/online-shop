@@ -7,9 +7,10 @@ module.exports = [
     ],
     name: "After Party Tee",
     brand: "Ban.do",
-    availableColors: ["Dark Gray"],
+    availableColors: ["Gray"],
     availableSizes: ["XS", "S", "L", "XL"],
-    price: 20
+    price: 20,
+    showProduct: true
   },
   {
     product: 1,
@@ -21,7 +22,8 @@ module.exports = [
     brand: "Ban.do",
     availableColors: ["Red"],
     availableSizes: ["XS", "S", "M", "XL"],
-    price: 25
+    price: 25,
+    showProduct: true
   },
   {
     product: 2,
@@ -31,27 +33,30 @@ module.exports = [
     ],
     name: "Better Than Great Tee",
     brand: "Ban.do",
-    availableColors: ["Red"],
+    availableColors: ["Pink"],
     availableSizes: ["XS", "S", "M", "L"],
-    price: 20
+    price: 20,
+    showProduct: true
   },
   {
     product: 3,
     images: ["/images/tshirts/Ban.do/Blue Is My Power Color Tee.png"],
     name: "Blue Is My Power Color Tee",
     brand: "Ban.do",
-    availableColors: ["Light Blue"],
-    availableSizes: ["XS", "S", "M", "L", "XL"],
-    price: 18
+    availableColors: ["Blue"],
+    availableSizes: ["S", "M", "L", "XL"],
+    price: 18,
+    showProduct: true
   },
   {
     product: 4,
     images: ["/images/tshirts/Ban.do/Day Drinkers Tee.png"],
     name: "Day Drinkers Tee",
     brand: "Ban.do",
-    availableColors: ["Dark Gray"],
-    availableSizes: ["XS", "S", "M", "L", "XL"],
-    price: 20
+    availableColors: ["Gray"],
+    availableSizes: ["XS", "M", "XL"],
+    price: 20,
+    showProduct: true
   },
   {
     product: 5,
@@ -63,7 +68,8 @@ module.exports = [
     brand: "Ban.do",
     availableColors: ["White"],
     availableSizes: ["XS", "S", "M", "L", "XL"],
-    price: 20
+    price: 20,
+    showProduct: true
   },
   {
     product: 6,
@@ -72,16 +78,18 @@ module.exports = [
     brand: "Ban.do",
     availableColors: ["Green"],
     availableSizes: ["XS", "S", "M", "L", "XL"],
-    price: 18
+    price: 18,
+    showProduct: true
   },
   {
     product: 7,
     images: ["/images/tshirts/Ban.do/I Believe In Vacation Tee.png"],
     name: "I Believe In Vacation Tee",
     brand: "Ban.do",
-    availableColors: ["Off White"],
-    availableSizes: ["XS", "S", "M", "L", "XL"],
-    price: 20
+    availableColors: ["White"],
+    availableSizes: ["S", "M", "L", "XL"],
+    price: 20,
+    showProduct: true
   },
   {
     product: 8,
@@ -92,8 +100,9 @@ module.exports = [
     name: "Paradise Tee",
     brand: "Ban.do",
     availableColors: ["Green"],
-    availableSizes: ["XS", "S", "M", "L", "XL"],
-    price: 20
+    availableSizes: ["XS", "M", "L", "XL"],
+    price: 20,
+    showProduct: true
   },
   {
     product: 9,
@@ -102,7 +111,8 @@ module.exports = [
     brand: "Ban.do",
     availableColors: ["Red"],
     availableSizes: ["XS", "S", "M", "L", "XL"],
-    price: 18
+    price: 18,
+    showProduct: true
   },
   {
     product: 10,
@@ -113,8 +123,9 @@ module.exports = [
     name: "Ride The Wave Tee",
     brand: "Ban.do",
     availableColors: ["Pink"],
-    availableSizes: ["XS", "S", "M", "L", "XL"],
-    price: 40
+    availableSizes: ["XS", "S", "XL"],
+    price: 40,
+    showProduct: true
   },
   {
     product: 11,
@@ -126,7 +137,8 @@ module.exports = [
     brand: "Ban.do",
     availableColors: ["White"],
     availableSizes: ["XS", "M", "L", "XL"],
-    price: 20
+    price: 20,
+    showProduct: true
   },
   {
     product: 12,
@@ -134,8 +146,9 @@ module.exports = [
     name: "Yellow Is My Power Color Tee",
     brand: "Ban.do",
     availableColors: ["Yellow"],
-    availableSizes: ["XS", "S", "M", "L", "XL"],
-    price: 18
+    availableSizes: ["M", "L", "XL"],
+    price: 18,
+    showProduct: true
   },
   {
     product: 13,
@@ -146,8 +159,9 @@ module.exports = [
     name: "Yes You Can Retro Tee",
     brand: "Ban.do",
     availableColors: ["White"],
-    availableSizes: ["S", "M", "L", "XL"],
-    price: 30
+    availableSizes: ["S", "M"],
+    price: 30,
+    showProduct: true
   },
   {
     product: 14,
@@ -159,7 +173,8 @@ module.exports = [
     brand: "ModCloth",
     availableColors: ["White"],
     availableSizes: ["XS", "S", "M", "L", "XL"],
-    price: 25
+    price: 25,
+    showProduct: true
   },
   {
     product: 15,
@@ -171,7 +186,8 @@ module.exports = [
     brand: "ModCloth",
     availableColors: ["White"],
     availableSizes: ["M", "L", "XL"],
-    price: 20
+    price: 20,
+    showProduct: true
   },
   {
     product: 16,
@@ -181,9 +197,10 @@ module.exports = [
     ],
     name: "From Outer Space Graphic Tee",
     brand: "ModCloth",
-    availableColors: ["Navy Blue"],
-    availableSizes: ["XS", "S", "M", "L", "XL"],
-    price: 30
+    availableColors: ["Blue"],
+    availableSizes: ["XS", "S", "M", "XL"],
+    price: 30,
+    showProduct: true
   },
   {
     product: 17,
@@ -194,7 +211,8 @@ module.exports = [
     name: "Let's Guac N Roll Tee",
     brand: "ModCloth",
     availableColors: ["White"],
-    availableSizes: ["XS", "S", "M", "L", "XL"],
-    price: 25
+    availableSizes: ["S", "M", "L", "XL"],
+    price: 25,
+    showProduct: true
   }
 ];

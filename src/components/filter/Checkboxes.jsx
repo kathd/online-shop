@@ -7,8 +7,8 @@ const Checkboxes = ({ title, dataArray, handleCheck}) => {
     return (
         <div className="filter-group">
         <h4>{title}:</h4>
-          {dataArray.map((data) => (
-            <div className="checkbox" key={data.id}>
+          {dataArray.map((data, i) => (
+            <div className="checkbox" key={i}>
               <input type="checkbox" name={title.toLowerCase()} value={data.value} onChange={handleCheck} />
               <label htmlFor={title.toLowerCase()}>{data.value}</label>
               <br />

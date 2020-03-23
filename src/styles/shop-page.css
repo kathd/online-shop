@@ -1,4 +1,11 @@
 div.shop-page {
     display: flex;
     flex-direction: row;
+    position: relative;
+}
+
+.total-tees {
+    position: absolute;
+    top: -25px;
+    right: 40px;
 }

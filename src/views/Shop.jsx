@@ -9,84 +9,90 @@ import colors from "../data/colors";
 import sizes from "../data/sizes";
 
 const Shop = () => {
-  //   const productsCopy = [...products];
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [checkedFilters, setCheckedFilters] = useState([]);
-  const [colorFilters, setColorFilters] = useState(colors);
-  const [sizeFilters, setSizeFilters] = useState(sizes);
+  //   const [checkedFilters, setCheckedFilters] = useState([]);
+  const [filterByColor, setFilterByColor] = useState(colors);
+  const [filterBySize, setFilterBySize] = useState(sizes);
 
-  useEffect(() => {});
+  useEffect(() => {
+    setFilteredProducts(products);
+  }, []);
 
-  const handleCheckColors = e => {
-    const newColorFilters = [...colorFilters];
+  const handleFilterByColor = e => {
+    const newColorFilters = [...filterByColor];
     newColorFilters.forEach(color => {
       if (color.value === e.target.value) {
         color.isChecked = e.target.checked;
       }
     });
-    setColorFilters(newColorFilters);
-    console.log(colorFilters);
+    setFilterByColor(newColorFilters);
   };
 
-  const handleCheckSizes = e => {
-    const newSizeFilters = [...sizeFilters];
+  const handleFilterBySize = e => {
+    const newSizeFilters = [...filterBySize];
     newSizeFilters.forEach(size => {
       if (size.value === e.target.value) {
         size.isChecked = e.target.checked;
       }
     });
-    setSizeFilters(newSizeFilters);
-    console.log(sizeFilters);
+    setFilterBySize(newSizeFilters);
   };
 
-  const fetchCheckedFilters = () => {
-    const filters = [...colorFilters, ...sizeFilters];
-    const newCheckedFilters = [...checkedFilters];
+  const fetchProducts = () => {
+    const colorFilters = [...filterByColor];
+    const sizeFilters = [...filterBySize];
+    let productsByColor = [];
+    let productsBySize = [];
+    let newProducts = [];
 
-    filters.forEach(filter => {
-      if (filter.isChecked) newCheckedFilters.push(filter.value);
-    });
-
-    setCheckedFilters(newCheckedFilters);
-    fetchFilteredProducts();
-  };
-
-  const fetchFilteredProducts = () => {
-    //   show products that match with the elements in the checkedFilters array
-    const newProducts = [];
-    const filters = [...checkedFilters];
-    newProducts.forEach(product => {
-      filters.forEach(filter => {
-        if (
-          product.availableColors.includes(filter) ||
-          product.availableSizes.includes(filter)
-        ) {
-          newProducts.push(product);
+    colorFilters.forEach(color => {
+      products.forEach(product => {
+        if (color.isChecked && product.availableColors.includes(color.value)) {
+          productsByColor.push(product);
         }
       });
     });
-    setFilteredProducts(newProducts);
+
+    if (!productsByColor.length) productsByColor = [...products];
+
+    productsByColor.forEach(product => {
+      sizeFilters.forEach(size => {
+        if (size.isChecked && product.availableSizes.includes(size.value)) {
+          productsBySize.push(product);
+        }
+      });
+    });
+
+    if (!productsBySize.length) {
+      newProducts = [...productsByColor];
+    } else {
+      newProducts = [...productsBySize];
+    }
+
+    setFilteredProducts(Array.from(new Set(newProducts)));
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    fetchCheckedFilters();
+    fetchProducts();
   };
 
   return (
     <>
-      {console.log(checkedFilters)}
-      {console.log(filteredProducts)}
+      {/* {console.log(filteredProducts)} */}
       <Header title="Shop" />
       <div className="main shop-page">
+        <div className="total-tees">
+          <p>{filteredProducts.length} Article(s)</p>
+        </div>
         <FilterWidget
-          sizes={sizeFilters}
-          colors={colorFilters}
-          handleColors={handleCheckColors}
-          handleSizes={handleCheckSizes}
+          sizes={filterBySize}
+          colors={filterByColor}
+          handleColors={handleFilterByColor}
+          handleSizes={handleFilterBySize}
           handleSubmit={handleSubmit}
         />
-        <ShowProducts products={products} filteredProducts={filteredProducts} />
+        <ShowProducts products={filteredProducts} />
       </div>
     </>
   );

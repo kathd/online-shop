@@ -3,20 +3,26 @@ import React from "react";
 import EachProduct from "./EachProduct";
 // import products from "../../data/products";
 
-const ShowProducts = ({ products, filters }) => {
+const ShowProducts = ({ products }) => {
   return (
     <div className="show-products">
-      {products.map(product => (
+      {products.map((product, i) => (
         <EachProduct
-          key={product.product}
+          key={i}
           images={product.images}
           name={product.name}
           brand={product.brand}
           price={product.price}
           colors={product.availableColors}
           sizes={product.availableSizes}
+          isShowed={product.showProduct}
         />
       ))}
+      {!products.length && (
+        <div>
+          <p>No matches found...</p>
+        </div>
+      )}
     </div>
   );
 };
