@@ -11,15 +11,9 @@ import priceRange from "../data/prices";
 
 const Shop = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
-
   const [filterByColor, setFilterByColor] = useState(colors);
-//   const [productsByColor, setProductsByColor] = useState([]);
-
   const [filterBySize, setFilterBySize] = useState(sizes);
-//   const [productsBySize, setProductsBySize] = useState([]);
-
   const [filterByPrice, setFilterByPrice] = useState(priceRange);
-//   const [productsByPrice, setProductsByPrice] = useState([]);
 
   useEffect(() => {
     setFilteredProducts(products);
@@ -129,7 +123,6 @@ const Shop = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // fetchProducts();
     fetchProducts();
   };
 
