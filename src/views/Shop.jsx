@@ -11,16 +11,22 @@ import priceRange from "../data/prices";
 
 const Shop = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
+
   const [filterByColor, setFilterByColor] = useState(colors);
+//   const [productsByColor, setProductsByColor] = useState([]);
+
   const [filterBySize, setFilterBySize] = useState(sizes);
+//   const [productsBySize, setProductsBySize] = useState([]);
+
   const [filterByPrice, setFilterByPrice] = useState(priceRange);
+//   const [productsByPrice, setProductsByPrice] = useState([]);
 
   useEffect(() => {
     setFilteredProducts(products);
   }, []);
 
+  // change isChecked values of color data when selected by user:
   const handleFilterByColor = e => {
-    //   change isChecked values of color data when selected by user:
     const newColorFilters = [...filterByColor];
     newColorFilters.forEach(color => {
       if (color.value === e.target.value) {
@@ -30,8 +36,8 @@ const Shop = () => {
     setFilterByColor(newColorFilters);
   };
 
+  // change isChecked values of size data when selected by user:
   const handleFilterBySize = e => {
-    //   change isChecked values of size data when selected by user:
     const newSizeFilters = [...filterBySize];
     newSizeFilters.forEach(size => {
       if (size.value === e.target.value) {
@@ -41,58 +47,89 @@ const Shop = () => {
     setFilterBySize(newSizeFilters);
   };
 
+  // change isChecked values of price data when selected by user:
+  const handleFilterByPrice = e => {
+    const newPriceFilters = [...filterByPrice];
+    newPriceFilters.forEach(price => {
+      if (price.value === e.target.value) {
+        price.isChecked = e.target.checked;
+      }
+    });
+    setFilterByPrice(newPriceFilters);
+  };
+
+  // match products with color filters and store in an array
   const fetchProducts = () => {
     const colorFilters = [...filterByColor];
     const sizeFilters = [...filterBySize];
+    const priceFilters = [...filterByPrice];
     // where checked filters are stored:
     const checkedColorFilters = [];
     const checkedSizeFilters = [];
+    const checkedPriceFilters = [];
     // variables where filtered products will be stored:
-    let productsByColor = [];
-    let productsBySize = [];
-    let newProducts = [];
+    let filteredByColor = [];
+    let filteredBySize = [];
+    let filteredByPrice = [];
 
-    // push products that match with color filters to productsByColor array
+    // push products that match with color filters to filteredByColor array
     colorFilters.forEach(color => {
-      products.forEach(product => {
-        if (color.isChecked) {
-          checkedColorFilters.push(color); // to keep track of the number of filters checked
+      if (color.isChecked) {
+        checkedColorFilters.push(color.value); // to keep track of the number of filters checked
+        products.forEach(product => {
           if (product.availableColors.includes(color.value)) {
-            productsByColor.push(product);
+            filteredByColor.push(product);
           }
-        }
-      });
+        });
+      }
     });
 
     // if there are no color filters, all products are to be used for further filtering
-    if (!checkedColorFilters.length) productsByColor = [...products];
+    if (!checkedColorFilters.length) filteredByColor = [...products];
 
-    // push products that match with size filters to productsBySize array
-    productsByColor.forEach(product => {
-      sizeFilters.forEach(size => {
-        if (size.isChecked) {
-          checkedSizeFilters.push(size); // to keep track of the number of filters checked
+    // push products that match with size filters to filteredBySize array
+    sizeFilters.forEach(size => {
+      if (size.isChecked) {
+        checkedSizeFilters.push(size); // to keep track of the number of filters checked
+        filteredByColor.forEach(product => {
           if (product.availableSizes.includes(size.value)) {
-            productsBySize.push(product);
+            filteredBySize.push(product);
           }
-        }
-      });
+        });
+      }
     });
 
     // if 0 size filters checked, only the products filtered by colors are shown
     // when no product matches the size filters, 0 products will be shown on the page
-    if (!checkedSizeFilters.length) {
-      newProducts = [...productsByColor];
-    } else {
-      newProducts = [...productsBySize];
-    }
+    if (!checkedSizeFilters.length) filteredBySize = filteredByColor;
+
+    // push products that match with price filters to filteredBySize array
+    priceFilters.forEach(price => {
+      if (price.isChecked) {
+        checkedPriceFilters.push(price); // to keep track of the number of filters checked
+        filteredBySize.forEach(product => {
+          if (
+            price.minValue <= product.price &&
+            product.price < price.maxValue
+          ) {
+            filteredByPrice.push(product);
+          }
+        });
+      }
+    });
+
+    // if 0 price filters checked, only the products filtered by sizes are shown
+    // when no product matches the price filters, 0 products will be shown on the page
+    if (!checkedPriceFilters.length) filteredByPrice = filteredBySize;
 
     // Aray.from(new Set()) removes duplicates from newProducts array
-    setFilteredProducts(Array.from(new Set(newProducts)));
+    setFilteredProducts(Array.from(new Set(filteredByPrice)));
+
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+    // fetchProducts();
     fetchProducts();
   };
 
@@ -109,6 +146,7 @@ const Shop = () => {
           colors={filterByColor}
           handleColors={handleFilterByColor}
           handleSizes={handleFilterBySize}
+          handlePrices={handleFilterByPrice}
           handleSubmit={handleSubmit}
         />
         <ShowProducts products={filteredProducts} />

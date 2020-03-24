@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import '../styles/navbar.css';
 
@@ -7,13 +7,13 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="logo">
-        <NavLink to="/">TeeShirtz</NavLink>
+        <Link to="/">TeeShirtz</Link>
       </div>
       <div className="menu">
-        <NavLink to="/shop">Shop</NavLink>
+        <Link to="/shop">Shop</Link>
         {/* if not logged in, Account directs to register/login page */}
         {/* <NavLink to="/account">Account</NavLink>  */}
-        <NavLink to="/cart">Cart</NavLink>
+        <Link to="/cart">Cart</Link>
       </div>
     </div>
   );
