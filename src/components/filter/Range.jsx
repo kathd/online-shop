@@ -4,7 +4,7 @@ const Range = ({ title, priceFilter, handleCheck }) => {
   return (
     <div className="price-range">
       <h4>{title}:</h4>
-      <label htmlFor="price">€ {priceFilter}</label>
+      { !priceFilter ? (<label htmlFor="price">--</label>) : (<label htmlFor="price"> {"<"} € {priceFilter}</label>)}
       <input
         type="range"
         min="0"
@@ -12,7 +12,7 @@ const Range = ({ title, priceFilter, handleCheck }) => {
         name="price"
         defaultValue={priceFilter}
         onChange={handleCheck}
-      ></input>
+      />
       <hr />
     </div>
   );
