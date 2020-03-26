@@ -1,7 +1,7 @@
 div.widget {
     width: 200px;
     min-width: 200px;
-    height: 650px;
+    height: 570px;
     /* position: fixed; */
     z-index: 1;
     margin-left: 40px;
@@ -9,7 +9,7 @@ div.widget {
     border: 1px solid #f4f4f4;
     background-color: #f4f4f4;
     border-radius: 20px;
-    padding: 10px 20px;
+    padding: 10px;
     -webkit-box-shadow: 11px 11px 38px -21px rgba(0, 0, 0, 0.36);
     -moz-box-shadow: 11px 11px 38px -21px rgba(0, 0, 0, 0.36);
     box-shadow: 11px 11px 38px -21px rgba(0, 0, 0, 0.36);
@@ -22,8 +22,25 @@ div.widget {
     text-align: center;
 }
 
+.widget hr {
+    border-color: #fff;
+}
+
 .widget>* {
     margin: 10px;
+}
+
+.btn-reset {
+    margin: 10px 0;
+    padding: 5px 0;
+    border: none;
+    background-color: transparent;
+    color: dodgerblue;
+}
+
+.btn-reset:hover {
+    color: #444343;
+    cursor: pointer;
 }
 
 .btn-filter {
@@ -37,11 +54,24 @@ div.widget {
 div.filter-group {
     display: flex;
     flex-direction: column;
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 div.filter-group>* {
     margin: 2px 0;
+}
+
+div.colors {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+div.checkboxes {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
 }
 
 div.checkbox {
@@ -58,7 +88,26 @@ div.checkbox>* {
 }
 
 .color-block {
-    margin: auto 3px auto 0;
-    width: 10px;
-    height: 10px;
+    margin: auto 8px auto 1px;
+    width: 14px;
+    height: 14px;
+}
+
+div.price-range {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+
+}
+
+div.price-range > * {
+    margin: 3px;
+}
+
+.price-range label {
+    text-align: center;
+}
+
+.price-range input {
+    margin-bottom: 30px;
 }
