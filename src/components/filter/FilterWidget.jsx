@@ -42,8 +42,10 @@ const FilterWidget = ({ handleSubmit, colorClbk, sizeClbk, priceClbk }) => {
     priceClbk(+e.target.value);
   };
 
-  const handleReset = () => {
-    // when reset is clicked, all the filters will 
+  const handleReset = e => {
+    e.preventDefault();
+    // when reset is clicked, all the filters will be unchecked
+    
   }
 
   return (
@@ -52,7 +54,7 @@ const FilterWidget = ({ handleSubmit, colorClbk, sizeClbk, priceClbk }) => {
       <div>
         <form>
           <div>
-            <button className="btn-reset">Reset Filters</button>
+            <button className="btn-reset" onClick={handleReset}>Reset Filters</button>
           </div>
           <hr />
           <Checkboxes

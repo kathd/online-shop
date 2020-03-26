@@ -32,14 +32,12 @@ div.widget {
 
 .btn-reset {
     margin: 10px 0;
-    padding: 5px 0;
     border: none;
     background-color: transparent;
-    color: dodgerblue;
+    color: #686de0; 
 }
 
 .btn-reset:hover {
-    color: #444343;
     cursor: pointer;
 }
 
@@ -48,7 +46,14 @@ div.widget {
     padding: 5px 15px;
     border-radius: 10px;
     background-color: #fff;
+    border: 1px solid #ff7979;
+    color: #ff7979;
     margin: 10px 0;
+}
+
+.btn-filter:hover {
+    background-color: #ff7979;
+    color: #fff;
 }
 
 div.filter-group {

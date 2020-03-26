@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 import '../styles/navbar.css';
 
@@ -13,7 +15,7 @@ const Navbar = () => {
         <Link to="/shop">Shop</Link>
         {/* if not logged in, Account directs to register/login page */}
         {/* <NavLink to="/account">Account</NavLink>  */}
-        <Link to="/cart">Cart</Link>
+        <Link to="/likes"><FontAwesomeIcon icon={faHeart} /></Link>
       </div>
     </div>
   );

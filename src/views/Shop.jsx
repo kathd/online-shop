@@ -6,7 +6,7 @@ import "../styles/shop-page.css";
 
 import products from "../data/products";
 
-const Shop = ({}) => {
+const Shop = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [colorFilters, setColorFilters] = useState([]);
   const [sizeFilters, setSizeFilters] = useState([]);

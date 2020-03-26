@@ -82,3 +82,12 @@ div.overlay {
 .container:hover .overlay-img {
     opacity: 1;
 }
+
+.btn-like {
+    border: none;
+}
+
+.heart {
+    color: #eb4d4b;
+    font-size: 20px;
+}

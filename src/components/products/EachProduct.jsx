@@ -1,6 +1,10 @@
 import React from "react";
 import "../../styles/products.css";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
+
 const EachProduct = ({
   images,
   name,
@@ -30,6 +34,7 @@ const EachProduct = ({
             </ul>
           </div>
         </div>
+        <button className="btn-like"><FontAwesomeIcon className="heart" icon={faHeart} /></button>
         <h3>{name}</h3>
         <h4>€ {price}</h4>
         <h4>{brand}</h4>
