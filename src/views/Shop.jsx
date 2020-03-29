@@ -10,37 +10,45 @@ const Shop = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [colorFilters, setColorFilters] = useState([]);
   const [sizeFilters, setSizeFilters] = useState([]);
+  const [brandFilters, setBrandFilters] = useState([]);
   const [priceFilter, setPriceFilter] = useState(0);
 
   useEffect(() => {
     setFilteredProducts(products);
   }, []);
 
-  const colorCallback = (colorData) => {
+  const colorCallback = colorData => {
     setColorFilters(colorData);
-  }
+  };
 
-  const sizeCallback = (sizeData) => {
+  const sizeCallback = sizeData => {
     setSizeFilters(sizeData);
-  }
+  };
 
-  const priceCallback = (priceData) => {
+  const brandCallback = brandData => {
+    setBrandFilters(brandData);
+  };
+
+  const priceCallback = priceData => {
     setPriceFilter(priceData);
-  }
+  };
 
   // match products with color filters and store in an array
   const fetchProducts = () => {
     // assign to variables the copies color / size / price filters
     const newColorFilters = [...colorFilters];
     const newSizeFilters = [...sizeFilters];
+    const newBrandFilters = [...brandFilters];
     const newPriceFilter = priceFilter;
     // where checked filters are stored:
     const checkedColorFilters = [];
     const checkedSizeFilters = [];
+    const checkedBrandFilters = [];
     // const checkedPriceFilters = [];
     // variables where filtered products will be stored:
     let filteredByColor = [];
     let filteredBySize = [];
+    let filteredByBrand = [];
     let filteredByPrice = [];
 
     // push products that match with color filters to filteredByColor array
@@ -74,15 +82,30 @@ const Shop = () => {
     // when no product matches the size filters, 0 products will be shown on the page
     if (!checkedSizeFilters.length) filteredBySize = filteredByColor;
 
+    // push products that match with brand filters to filteredByBrand array
+    newBrandFilters.forEach(brand => {
+      if (brand.isChecked) {
+        checkedBrandFilters.push(brand);
+        filteredBySize.forEach(product => {
+          if (product.brand === brand.value) {
+            filteredByBrand.push(product);
+          }
+        });
+      }
+    });
+
+    // if 0 brand filters checked, only the products filtered by size are shown
+    if (!checkedBrandFilters.length) filteredByBrand = filteredBySize;
+
     // fetch all products with prices below the value selected
-    filteredBySize.forEach(product => {
+    filteredByBrand.forEach(product => {
       if (product.price <= priceFilter) {
         filteredByPrice.push(product);
       }
     });
 
-    // if priceFilter stayed at 0, products filtered by size are shown
-    if (newPriceFilter === 0) filteredByPrice = filteredBySize;
+    // if priceFilter stayed at 0, products filtered by brand are shown
+    if (newPriceFilter === 0) filteredByPrice = filteredByBrand;
 
     // Aray.from(new Set()) removes duplicates from newProducts array
     setFilteredProducts(Array.from(new Set(filteredByPrice)));
@@ -106,6 +129,7 @@ const Shop = () => {
           // colors={filterByColor}
           colorClbk={colorCallback}
           sizeClbk={sizeCallback}
+          brandClbk={brandCallback}
           priceClbk={priceCallback}
           // handleColors={handleFilterByColor}
           // handleSizes={handleFilterBySize}

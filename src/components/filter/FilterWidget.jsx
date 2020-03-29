@@ -6,10 +6,12 @@ import Range from "../filter/Range";
 
 import colors from "../../data/colors";
 import sizes from "../../data/sizes";
+import brands from "../../data/brands";
 
-const FilterWidget = ({ handleSubmit, colorClbk, sizeClbk, priceClbk }) => {
+const FilterWidget = ({ handleSubmit, colorClbk, sizeClbk, brandClbk, priceClbk }) => {
   const [colorFilters, setColorFilters] = useState(colors);
   const [sizeFilters, setSizeFilters] = useState(sizes);
+  const [brandFilters, setBrandFilters] = useState(brands);
   const [priceFilter, setPriceFilter] = useState(0);
 
   // change isChecked values of color data when selected by user:
@@ -36,6 +38,17 @@ const FilterWidget = ({ handleSubmit, colorClbk, sizeClbk, priceClbk }) => {
     sizeClbk(newSizeFilters);
   };
 
+  const handleFilterByBrand = e => {
+    const newBrandFilters = [...brandFilters];
+    newBrandFilters.forEach(brand => {
+      if (brand.value === e.target.value) {
+        brand.isChecked = e.target.checked;
+      }
+    });
+    setBrandFilters(newBrandFilters);
+    brandClbk(newBrandFilters);
+  }
+
   // change price value
   const handleFilterByPrice = e => {
     setPriceFilter(+e.target.value);
@@ -45,7 +58,7 @@ const FilterWidget = ({ handleSubmit, colorClbk, sizeClbk, priceClbk }) => {
   const handleReset = e => {
     e.preventDefault();
     // when reset is clicked, all the filters will be unchecked
-    
+
   }
 
   return (
@@ -61,6 +74,11 @@ const FilterWidget = ({ handleSubmit, colorClbk, sizeClbk, priceClbk }) => {
             title="Colors"
             dataArray={colorFilters}
             handleCheck={handleFilterByColor}
+          />
+          <Checkboxes
+            title="Brands"
+            dataArray={brandFilters}
+            handleCheck={handleFilterByBrand}
           />
           <Checkboxes
             title="Sizes"
