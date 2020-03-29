@@ -6,7 +6,7 @@ const Checkboxes = ({ title, dataArray, handleCheck }) => {
   return (
     <div className="filter-group">
       <h4>{title}:</h4>
-      <div className={title === "Colors" ? "colors" : "checkboxes"}>
+      <div className={title === "Colors" ? "colors" : "others"}>
         {dataArray.map((data, i) => (
           <div className="checkbox" key={i}>
             <input

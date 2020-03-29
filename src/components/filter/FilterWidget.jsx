@@ -24,6 +24,7 @@ const FilterWidget = ({ handleSubmit, colorClbk, sizeClbk, brandClbk, priceClbk 
     });
     setColorFilters(newColorFilters);
     colorClbk(newColorFilters);
+    console.log(colorFilters);
   };
 
   // change isChecked values of size data when selected by user:

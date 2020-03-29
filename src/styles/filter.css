@@ -29,16 +29,20 @@ div.widget {
     margin: 10px;
 }
 
+/* RESET */
+
 .btn-reset {
     margin: 10px 0;
     border: none;
     background-color: transparent;
-    color: #686de0; 
+    color: #686de0;
 }
 
 .btn-reset:hover {
     cursor: pointer;
 }
+
+/* FILTER BUTTON */
 
 .btn-filter {
     width: 100%;
@@ -56,6 +60,8 @@ div.widget {
     cursor: pointer;
 }
 
+/* CHECKBOX FILTER */
+
 div.filter-group {
     display: flex;
     flex-direction: column;
@@ -66,6 +72,8 @@ div.filter-group>* {
     margin: 2px 0;
 }
 
+/* COLORS CHECKBOX */
+
 div.colors {
     display: flex;
     flex-direction: row;
@@ -73,11 +81,40 @@ div.colors {
     margin: 10px 0;
 }
 
-div.checkboxes {
+/* Hide the browser's default checkbox */
+.colors input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.colors input:checked ~ .color-block {
+    border: 2px solid #ff7979;
+}
+
+.color-block {
+    margin: 8px 1px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #141414;
+}
+
+.color-block:hover {
+    border: 2px solid #ff7979;
+}
+
+/* OTHERS CHECKBOX */
+
+div.others {
     display: flex;
     flex-direction: column;
     margin: 10px 0;
 }
+
+/* EACH CHECKBOX */
 
 div.checkbox {
     display: flex;
@@ -92,21 +129,15 @@ div.checkbox>* {
     flex-direction: row;
 }
 
-.color-block {
-    margin: auto 8px auto 1px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-}
+/* PRICE RANGE */
 
 div.price-range {
     display: flex;
     flex-direction: column;
     margin: 10px 0;
-
 }
 
-div.price-range > * {
+div.price-range>* {
     margin: 3px;
 }
 
