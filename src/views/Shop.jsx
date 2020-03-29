@@ -94,9 +94,9 @@ const Shop = () => {
   };
 
   return (
-    <>
+    <div className="main">
       <Header title="Shop" />
-      <div className="main shop-page">
+      <div className="shop-page">
         <div className="total-tees">
           <p>{filteredProducts.length} Article(s)</p>
         </div>
@@ -114,7 +114,7 @@ const Shop = () => {
         />
         <ShowProducts products={filteredProducts} />
       </div>
-    </>
+    </div>
   );
 };
 
