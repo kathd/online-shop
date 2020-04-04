@@ -12,6 +12,7 @@ const Shop = () => {
   const [sizeFilters, setSizeFilters] = useState([]);
   const [brandFilters, setBrandFilters] = useState([]);
   const [priceFilter, setPriceFilter] = useState(0);
+  const [resetClicked, setResetClicked] = useState(false);
 
   useEffect(() => {
     setFilteredProducts(products);
@@ -111,9 +112,29 @@ const Shop = () => {
     setFilteredProducts(Array.from(new Set(filteredByPrice)));
   };
 
+  const resetFilters = () => {
+    if (resetClicked) {
+      console.log("here");
+      // reset all isClicked to false
+      // then fetch all products & set resetClicked to false
+      setFilteredProducts(products);
+      setColorFilters([]);
+      setSizeFilters([]);
+      setBrandFilters([]);
+      setPriceFilter(0);
+      setResetClicked(false);
+    }
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     fetchProducts();
+  };
+
+  const handleReset = e => {
+    e.preventDefault();
+    setResetClicked(true);
+    resetFilters();
   };
 
   return (
@@ -124,16 +145,11 @@ const Shop = () => {
           <p>{filteredProducts.length} Article(s)</p>
         </div>
         <FilterWidget
-          // prices={filterByPrice}
-          // sizes={filterBySize}
-          // colors={filterByColor}
           colorClbk={colorCallback}
           sizeClbk={sizeCallback}
           brandClbk={brandCallback}
           priceClbk={priceCallback}
-          // handleColors={handleFilterByColor}
-          // handleSizes={handleFilterBySize}
-          // handlePrices={handleFilterByPrice}
+          handleReset={handleReset}
           handleSubmit={handleSubmit}
         />
         <ShowProducts products={filteredProducts} />

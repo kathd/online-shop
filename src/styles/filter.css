@@ -81,6 +81,10 @@ div.colors {
     margin: 10px 0;
 }
 
+div.colors > * {
+    margin: 3px;
+}
+
 /* Hide the browser's default checkbox */
 .colors input {
     position: absolute;
@@ -91,19 +95,19 @@ div.colors {
 }
 
 .colors input:checked ~ .color-block {
-    border: 2px solid #ff7979;
+    border: 3px solid #ff7979;
 }
 
 .color-block {
     margin: 8px 1px;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     border: 1px solid #141414;
 }
 
 .color-block:hover {
-    border: 2px solid #ff7979;
+    border: 1px solid #ff7979;
 }
 
 /* OTHERS CHECKBOX */
@@ -120,7 +124,7 @@ div.checkbox {
     display: flex;
 }
 
-div.checkbox>* {
+div.checkbox label >* {
     margin: auto 3px;
 }
 

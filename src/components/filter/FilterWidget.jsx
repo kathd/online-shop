@@ -8,7 +8,14 @@ import colors from "../../data/colors";
 import sizes from "../../data/sizes";
 import brands from "../../data/brands";
 
-const FilterWidget = ({ handleSubmit, colorClbk, sizeClbk, brandClbk, priceClbk }) => {
+const FilterWidget = ({
+  handleSubmit,
+  handleReset,
+  colorClbk,
+  sizeClbk,
+  brandClbk,
+  priceClbk,
+}) => {
   const [colorFilters, setColorFilters] = useState(colors);
   const [sizeFilters, setSizeFilters] = useState(sizes);
   const [brandFilters, setBrandFilters] = useState(brands);
@@ -24,7 +31,6 @@ const FilterWidget = ({ handleSubmit, colorClbk, sizeClbk, brandClbk, priceClbk 
     });
     setColorFilters(newColorFilters);
     colorClbk(newColorFilters);
-    console.log(colorFilters);
   };
 
   // change isChecked values of size data when selected by user:
@@ -48,7 +54,7 @@ const FilterWidget = ({ handleSubmit, colorClbk, sizeClbk, brandClbk, priceClbk 
     });
     setBrandFilters(newBrandFilters);
     brandClbk(newBrandFilters);
-  }
+  };
 
   // change price value
   const handleFilterByPrice = e => {
@@ -56,19 +62,15 @@ const FilterWidget = ({ handleSubmit, colorClbk, sizeClbk, brandClbk, priceClbk 
     priceClbk(+e.target.value);
   };
 
-  const handleReset = e => {
-    e.preventDefault();
-    // when reset is clicked, all the filters will be unchecked
-
-  }
-
   return (
     <div className="widget">
       <h3>Filter Tees</h3>
       <div>
         <form>
           <div>
-            <button className="btn-reset" onClick={handleReset}>Reset Filters</button>
+            <button className="btn-reset" onClick={handleReset}>
+              Reset Filters
+            </button>
           </div>
           <hr />
           <Checkboxes
