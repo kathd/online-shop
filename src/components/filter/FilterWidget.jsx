@@ -8,14 +8,7 @@ import colors from "../../data/colors";
 import sizes from "../../data/sizes";
 import brands from "../../data/brands";
 
-const FilterWidget = ({
-  handleSubmit,
-  handleReset,
-  colorClbk,
-  sizeClbk,
-  brandClbk,
-  priceClbk,
-}) => {
+const FilterWidget = (props) => {
   const [colorFilters, setColorFilters] = useState(colors);
   const [sizeFilters, setSizeFilters] = useState(sizes);
   const [brandFilters, setBrandFilters] = useState(brands);
@@ -30,7 +23,7 @@ const FilterWidget = ({
       }
     });
     setColorFilters(newColorFilters);
-    colorClbk(newColorFilters);
+    props.colorClbk(newColorFilters);
   };
 
   // change isChecked values of size data when selected by user:
@@ -42,7 +35,7 @@ const FilterWidget = ({
       }
     });
     setSizeFilters(newSizeFilters);
-    sizeClbk(newSizeFilters);
+    props.sizeClbk(newSizeFilters);
   };
 
   const handleFilterByBrand = e => {
@@ -53,13 +46,13 @@ const FilterWidget = ({
       }
     });
     setBrandFilters(newBrandFilters);
-    brandClbk(newBrandFilters);
+    props.brandClbk(newBrandFilters);
   };
 
   // change price value
   const handleFilterByPrice = e => {
     setPriceFilter(+e.target.value);
-    priceClbk(+e.target.value);
+    props.priceClbk(+e.target.value);
   };
 
   return (
@@ -68,7 +61,7 @@ const FilterWidget = ({
       <div>
         <form>
           <div>
-            <button className="btn-reset" onClick={handleReset}>
+            <button className="btn-reset" onClick={props.handleReset}>
               Reset Filters
             </button>
           </div>
@@ -93,9 +86,9 @@ const FilterWidget = ({
             priceFilter={priceFilter}
             handleCheck={handleFilterByPrice}
           />
-          <button className="btn-filter" onClick={handleSubmit}>
+          {/* <button className="btn-filter" onClick={props.handleSubmit}>
             Filter
-          </button>
+          </button> */}
         </form>
       </div>
     </div>

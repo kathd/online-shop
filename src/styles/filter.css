@@ -21,10 +21,6 @@ div.widget {
     text-align: center;
 }
 
-.widget hr {
-    border-color: #fff;
-}
-
 .widget>* {
     margin: 10px;
 }
@@ -44,7 +40,7 @@ div.widget {
 
 /* FILTER BUTTON */
 
-.btn-filter {
+/* .btn-filter {
     width: 100%;
     padding: 5px 15px;
     border-radius: 10px;
@@ -52,13 +48,11 @@ div.widget {
     border: 1px solid #ff7979;
     color: #fff;
     margin: 10px 0;
-}
+} */
 
-.btn-filter:hover {
-    /* background-color: #fff;
-    color: #ff7979; */
+/* .btn-filter:hover {
     cursor: pointer;
-}
+} */
 
 /* CHECKBOX FILTER */
 

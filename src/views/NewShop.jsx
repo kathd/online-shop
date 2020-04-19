@@ -33,7 +33,6 @@ const NewShop = () => {
 
   const handleSubmit = () => {
     // maybe we can make the filters work without clicking the filter button
-
   };
 
   return (

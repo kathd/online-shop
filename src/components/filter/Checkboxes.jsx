@@ -2,20 +2,19 @@ import React from "react";
 
 import "../../styles/filter.css";
 
-const Checkboxes = ({ title, dataArray, handleCheck }) => {
+const Checkboxes = (props) => {
   return (
     <div className="filter-group">
-      <h4>{title}:</h4>
-      <div className={title === "Colors" ? "colors" : "others"}>
-        {dataArray.map((data, i) => (
+      <h4>{props.title}:</h4>
+      <div className={props.title === "Colors" ? "colors" : "others"}>
+        {props.dataArray.map((data, i) => (
           <div className="checkbox" key={i}>
-            <label htmlFor={"checkbox_" + i}>
+            <label>
               <input
                 type="checkbox"
-                id={"checkbox_" + i}
-                name={title.toLowerCase()}
+                name={props.title.toLowerCase()}
                 value={data.value}
-                onChange={handleCheck}
+                onChange={props.handleCheck}
               />
               {data.group === "color" ? (
                 <div
@@ -24,7 +23,7 @@ const Checkboxes = ({ title, dataArray, handleCheck }) => {
                 ></div>
               ) : (
                 <div>
-                  <span className></span>
+                  <span></span>
                   {data.value}
                 </div>
               )}
