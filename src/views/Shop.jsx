@@ -34,8 +34,11 @@ const Shop = () => {
     setPriceFilter(priceData);
   };
 
+ 
+
   // match products with color filters and store in an array
   const fetchProducts = () => {
+    console.log(colorFilters, sizeFilters)
     // assign to variables the copies color / size / price filters
     const newColorFilters = [...colorFilters];
     const newSizeFilters = [...sizeFilters];
